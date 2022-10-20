@@ -3,6 +3,7 @@ import connect from './database';
 import  healthcheck  from './api/healthcheck/healthcheck.routes';
 import users  from './api/users/users.routes';
 import publications  from './api/publications/publications.routes';
+import register  from './api/register/register.routes';
 
 
 
@@ -18,6 +19,7 @@ app.use(express.json())
 app.use(healthcheck)
 app.use(users)
 app.use(publications)
+app.use(register)
 
 
 
