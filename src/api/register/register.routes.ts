@@ -7,12 +7,12 @@ import {
   deleteRegisterByIdController,
 } from "./register.controller";
 
-const router = Router();
+const registerRouter = Router();
 
-router.post("/register", createRegisterController);
-router.get("/register", getRegistersController);
-router.get("/register/:id", getRegisterByIdController);
-router.put("/register/:id", updateRegisterByIdController);
-router.delete("/register/:id", deleteRegisterByIdController);
+registerRouter.post("/", createRegisterController);
+registerRouter.get("/", getRegistersController);
+registerRouter.get("/:id", getRegisterByIdController);
+registerRouter.put("/:id", updateRegisterByIdController);
+registerRouter.delete("/:id", deleteRegisterByIdController);
 
-export default router;
+export default registerRouter;

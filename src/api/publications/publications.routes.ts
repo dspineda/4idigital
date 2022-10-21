@@ -1,8 +1,8 @@
 import { Router } from "express";
 import { publications } from "./publications.controller";
 
-const router = Router();
+const publicationsRouter = Router();
 
-router.get("/posts", publications);
+publicationsRouter.get("/", publications);
 
-export default router;
+export default publicationsRouter;

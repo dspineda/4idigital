@@ -1,8 +1,8 @@
 import { Router } from "express";
 import { signUp } from "./sign-Up.controller";
 
-const router = Router();
+const signUpRouter = Router();
 
-router.post("/sign-up", signUp);
+signUpRouter.post("/", signUp);
 
-export default router;
+export default signUpRouter;
