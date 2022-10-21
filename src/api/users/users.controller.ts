@@ -13,6 +13,7 @@ export async function users(req: Request, res: Response) {
   await fetch(`${BASE_URL}/register`, {
     method: "POST",
     headers: {
+        "Content-Type": "application/json",
         Authorization: `Bearer ${token}` 
     },
     body: JSON.stringify(dataRegister),
@@ -37,8 +38,9 @@ export async function photos(req: Request, res: Response) {
   await fetch(`${BASE_URL}/register`, {
     method: "POST",
     headers: {
-      Authorization: `Bearer ${token}` 
-  },
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
     body: JSON.stringify(dataRegister),
   });
   res.send(photosJson);

@@ -12,7 +12,6 @@ const {
 export async function createRegisterController(req: Request, res: Response) {
   try {
     const newReg = req.body;
-    console.log("🚀 ~ file: register.controller.ts ~ line 15 ~ createRegisterController ~ newReg", newReg)
     const register = await createRegister(newReg);
     res.status(201).json(register);
   } catch (error) {
