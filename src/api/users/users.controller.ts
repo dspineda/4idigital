@@ -1,10 +1,12 @@
 import { Request, Response } from "express";
 
+const { BASE_URL } = process.env;
+
 export async function users(req: Request, res: Response) {
   const getUsers = await fetch("https://jsonplaceholder.typicode.com/users");
   const usersJson = await getUsers.json();
-  const dataRegister = await { data: usersJson, method: "GET USERS" };
-  await fetch("http://localhost:8080/register", {
+  const dataRegister = { data: usersJson, method: "GET USERS" };
+  await fetch(`${BASE_URL}/register`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -21,11 +23,11 @@ export async function photos(req: Request, res: Response) {
     `https://jsonplaceholder.typicode.com/albums/${id}/photos`
   );
   const photosJson = await getPhotos.json();
-  const dataRegister = await {
+  const dataRegister ={
     data: photosJson,
     method: "GET PHOTOS BY USERS",
   };
-  await fetch("http://localhost:8080/register", {
+  await fetch(`${BASE_URL}/register`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

@@ -22,5 +22,7 @@ app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(spec));
 app.listen(app.get("port"), () => {
   console.log(`Server running on port ${app.get("port")}`);
   console.log(`Swagger docs running on http://localhost:${app.get("port")}/api-docs`);
-  
+
 });
+
+export default app;

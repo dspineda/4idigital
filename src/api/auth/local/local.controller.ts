@@ -6,12 +6,14 @@ async function login(req: Request, res: Response) {
   const { email, password } = req.body;
   try {
     const user = await findUserByEmail(email);
+
     if (!user) {
       return res
         .status(404)
         .json({ message: "User or password not registred" });
     }
     const isMatch = await user.comparePassword(password);
+
     if (!isMatch) {
       return res
         .status(404)
