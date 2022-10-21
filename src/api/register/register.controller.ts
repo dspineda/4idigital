@@ -1,7 +1,13 @@
-import service from './register.service';
+import service from "./register.service";
 import { Request, Response } from "express";
 
-const { createRegister, getRegisters, getRegisterById, updateRegisterById, deleteRegisterById } = service;
+const {
+  createRegister,
+  getRegisters,
+  getRegisterById,
+  updateRegisterById,
+  deleteRegisterById,
+} = service;
 
 export async function createRegisterController(req: Request, res: Response) {
   try {
@@ -31,7 +37,10 @@ export async function getRegisterByIdController(req: Request, res: Response) {
   }
 }
 
-export async function updateRegisterByIdController(req: Request, res: Response) {
+export async function updateRegisterByIdController(
+  req: Request,
+  res: Response
+) {
   try {
     const register = await updateRegisterById(req.params.id, req.body);
     res.status(200).json(register);
@@ -40,7 +49,10 @@ export async function updateRegisterByIdController(req: Request, res: Response) 
   }
 }
 
-export async function deleteRegisterByIdController(req: Request, res: Response) {
+export async function deleteRegisterByIdController(
+  req: Request,
+  res: Response
+) {
   try {
     const register = await deleteRegisterById(req.params.id);
     res.status(200).json(register);
@@ -48,7 +60,3 @@ export async function deleteRegisterByIdController(req: Request, res: Response) 
     res.status(500).json(error);
   }
 }
-
-
-
-

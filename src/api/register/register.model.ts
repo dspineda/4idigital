@@ -1,18 +1,15 @@
 import mongoose from "mongoose";
 
 const RegisterSchema = new mongoose.Schema({
-  
   date: {
     type: Date,
-    default: Date.now
+    default: Date.now,
   },
   data: [],
 
   method: {
-    type: String
-  }
-
+    type: String,
+  },
 });
 
 export default mongoose.model("Register", RegisterSchema);
-
