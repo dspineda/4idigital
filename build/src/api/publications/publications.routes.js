@@ -1,8 +1,8 @@
-import { Router } from "express";
-import { publications } from "./publications.controller";
-
-const publicationsRouter = Router();
-
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const publications_controller_1 = require("./publications.controller");
+const publicationsRouter = (0, express_1.Router)();
 /**
  * @openapi
  * /posts:
@@ -27,6 +27,5 @@ const publicationsRouter = Router();
  *
  *
  */
-publicationsRouter.get("/", publications);
-
-export default publicationsRouter;
+publicationsRouter.get("/", publications_controller_1.publications);
+exports.default = publicationsRouter;

@@ -1,0 +1,21 @@
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const auth_service_1 = require("./api/auth/auth.service");
+const express_1 = require("express");
+const healthcheck_routes_1 = __importDefault(require("./api/healthcheck/healthcheck.routes"));
+const publications_routes_1 = __importDefault(require("./api/publications/publications.routes"));
+const register_routes_1 = __importDefault(require("./api/register/register.routes"));
+const sign_Up_routes_1 = __importDefault(require("./api/sign-Up/sign-Up.routes"));
+const users_routes_1 = __importDefault(require("./api/users/users.routes"));
+const local_routes_1 = __importDefault(require("./api/auth/local/local.routes"));
+const routes = (0, express_1.Router)();
+routes.use('/sign-up', sign_Up_routes_1.default);
+routes.use('/login', local_routes_1.default);
+routes.use('/healthcheck', healthcheck_routes_1.default);
+routes.use('/posts', auth_service_1.isAuthenticated, publications_routes_1.default);
+routes.use('/register', auth_service_1.isAuthenticated, register_routes_1.default);
+routes.use('/users', auth_service_1.isAuthenticated, users_routes_1.default);
+exports.default = routes;

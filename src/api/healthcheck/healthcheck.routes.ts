@@ -1,9 +1,19 @@
-import { Router } from 'express';
-import { healthcheck } from './healthcheck.controller';
+import { Router } from "express";
+import { healthcheck } from "./healthcheck.controller";
 
-const router = Router();
+const healthcheckRouter = Router();
 
-router.get('/healthcheck', healthcheck);
+/**
+ * @openapi
+ * /healthcheck:
+ *  get:
+ *   tags:
+ *   - HealthCheck
+ *   description: Get a 200 response if the server is up and running
+ *   responses:
+ *    200:
+ *      description: App is up and running
+ */
+healthcheckRouter.get("/", healthcheck);
 
-export default router;
-
+export default healthcheckRouter;

@@ -1,8 +1,8 @@
-import { Router } from "express";
-import { users, photos } from "./users.controller";
-
-
-const userRouter = Router();
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const users_controller_1 = require("./users.controller");
+const userRouter = (0, express_1.Router)();
 /**
  * @openapi
  *  /users:
@@ -25,8 +25,7 @@ const userRouter = Router();
  *       schema:
  *        $ref: '#/components/schemas/Error'
  */
-userRouter.get("/", users);
-
+userRouter.get("/", users_controller_1.users);
 /**
  * @openapi
  *  /users/photos/{id}:
@@ -53,6 +52,5 @@ userRouter.get("/", users);
  *        $ref: '#/components/schemas/Error'
  *
  */
-userRouter.get("/photos/:id", photos);
-
-export default userRouter;
+userRouter.get("/photos/:id", users_controller_1.photos);
+exports.default = userRouter;
