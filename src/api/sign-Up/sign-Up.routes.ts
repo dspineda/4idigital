@@ -4,7 +4,7 @@ import { signUp } from "./sign-Up.controller";
 const signUpRouter = Router();
 /**
  * @openapi
- * /signUp:
+ * /sign-up:
  *  post:
  *   summary: Create a user
  *   tags: [SignUp]
